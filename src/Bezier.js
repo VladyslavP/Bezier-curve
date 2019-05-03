@@ -33,14 +33,11 @@ class Bezier extends Component {
   }
 
   componentDidMount() {
-    const { d } = this.interpolateCurve(0, 1, this.state.coordinates);
+    const { d } = this.interpolateCurve(this.state.coordinates);
     this.elem.setAttribute( 'd' , d );
   }
 
-  interpolateCurve(
-    lambdaStart,
-    lambdaEnd,
-    {
+  interpolateCurve({
       xAnchorStart,
       yAnchorStart,
       xHandleStart,
@@ -80,7 +77,7 @@ class Bezier extends Component {
   }
 
   performAnimation(value) {
-    const { d } = this.interpolateCurve(0, 1, value);
+    const { d } = this.interpolateCurve(value);
     this.elem.setAttribute( 'd' , d );
   }
 
